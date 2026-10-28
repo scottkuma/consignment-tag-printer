@@ -101,7 +101,7 @@ The seller needs to export the list of items that were just entered.
      - Strip trailing "(MERCHANDISE)"-style text from names (on)
      - Only include Status = Active (on)
      - One tag per unit of Quantity (on)
-     - Show dashed cut guides (off)
+     - Show dashed cut guides between tags (off)
 4. Check the preview, then click **Download PDF**
    (saved as `<Location>_tags.pdf`; rename to `<Location>_tags-YYYYMMDD.pdf` if you like).
 

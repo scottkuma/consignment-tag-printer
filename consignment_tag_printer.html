@@ -118,7 +118,7 @@
       <label class="check"><input type="checkbox" id="stripSuffix" checked> Remove trailing "(MERCHANDISE)"-style parentheses from item names</label>
       <label class="check"><input type="checkbox" id="onlyActive" checked> Only include rows with Status = Active</label>
       <label class="check"><input type="checkbox" id="repeatQty" checked> Print one tag per unit of Quantity (not just one per row)</label>
-      <label class="check"><input type="checkbox" id="showCut"> Show dashed cut guides on tags</label>
+      <label class="check"><input type="checkbox" id="showCut"> Show dashed cut guides between tags</label>
     </div>
   </div>
 
@@ -808,7 +808,12 @@ window.TAG_FONTS_TTF_BASE64 = {"Pacifico Tag": "AAEAAAARAQAABAAQR0RFRhEHEdEAAPmw
       const tag = shown[i];
       const div = document.createElement("div");
       div.className = "tag" + (tag ? "" : " empty");
-      div.style.borderStyle = showCut.checked ? "dashed" : "none";
+      // Cut guides: only interior lines (center vertical + between rows), none on the page edges.
+      div.style.border = "none";
+      if (showCut.checked) {
+        if (i % COLS < COLS - 1) div.style.borderRight = "1px dashed #bbb";
+        if (Math.floor(i / COLS) < ROWS - 1) div.style.borderBottom = "1px dashed #bbb";
+      }
       if (tag) {
         const bc = getBarcodeDataURL(tag.sku);
         div.innerHTML =
@@ -888,14 +893,23 @@ window.TAG_FONTS_TTF_BASE64 = {"Pacifico Tag": "AAEAAAARAQAABAAQR0RFRhEHEdEAAPmw
     return { size, lines };
   }
 
+  // Dashed cut guides for the tag whose top-left corner is (x, y): only interior lines
+  // (the vertical line between the two columns and the horizontal lines between rows),
+  // never the outer edges of the label sheet.
+  function drawCutGuides(doc, x, y) {
+    if (!showCut.checked) return;
+    const c = Math.round((x - MARGIN_LEFT) / TAG_W);
+    const r = Math.round((y - MARGIN_TOP) / TAG_H);
+    doc.setDrawColor(190);
+    doc.setLineWidth(0.005);
+    doc.setLineDashPattern([0.03, 0.03], 0);
+    if (c < COLS - 1) doc.line(x + TAG_W, y, x + TAG_W, y + TAG_H);
+    if (r < ROWS - 1) doc.line(x, y + TAG_H, x + TAG_W, y + TAG_H);
+    doc.setLineDashPattern([], 0);
+  }
+
   function drawTag(doc, tag, x, y) {
-    if (showCut.checked) {
-      doc.setDrawColor(190);
-      doc.setLineWidth(0.005);
-      doc.setLineDashPattern([0.03, 0.03], 0);
-      doc.rect(x, y, TAG_W, TAG_H);
-      doc.setLineDashPattern([], 0);
-    }
+    drawCutGuides(doc, x, y);
 
     doc.setTextColor(20, 20, 20);
 
@@ -1131,13 +1145,7 @@ window.TAG_FONTS_TTF_BASE64 = {"Pacifico Tag": "AAEAAAARAQAABAAQR0RFRhEHEdEAAPmw
           for (let c = 0; c < COLS; c++) {
             const x = MARGIN_LEFT + c * TAG_W;
             const y = MARGIN_TOP + r * TAG_H;
-            if (showCut.checked) {
-              doc.setDrawColor(190);
-              doc.setLineWidth(0.005);
-              doc.setLineDashPattern([0.03, 0.03], 0);
-              doc.rect(x, y, TAG_W, TAG_H);
-              doc.setLineDashPattern([], 0);
-            }
+            drawCutGuides(doc, x, y);
             let w = TAG_W - 0.10, h = w / aspect;
             if (h > TAG_H - 0.06) { h = TAG_H - 0.06; w = h * aspect; }
             doc.addImage(dataURL, "PNG", x + (TAG_W - w) / 2, y + (TAG_H - h) / 2, w, h, undefined, "FAST");
