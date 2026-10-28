@@ -80,8 +80,15 @@ Handwritten notes like this one can be turned into the CSV automatically:
 6. Confirm the items now appear under **Items** with **Status = Active** and have SKUs assigned.
 
 ### 3. Export the items list
-1. In Consignor Access, export the items list as CSV.
-2. Save it in `CSV Files and Tags/` as `Consignor_Access_-_ItemsYYYYMMDD.csv`.
+The seller needs to export the list of items that were just entered.
+
+1. In Consignor Access, click **Items** in the left-hand menu (**Vendor Items**).
+2. Click the **date range** drop-down at the top of the screen, choose **Today**, then click **Submit**.
+   This limits the list to the items just entered.
+3. In the **Show all status** drop-down, select **ACTIVE**.
+4. Use the check boxes to select the items to export (or the box in the header row to select them all).
+5. Click the **CSV** button (with the download icon) on the right.
+6. Save the downloaded file in `CSV Files and Tags/` as `Consignor_Access_-_ItemsYYYYMMDD.csv`.
    The tag printer needs these columns: **Item Name, SKU, Quantity, Status, Retail Price**.
 
 ### 4. Generate the front tags
