@@ -128,3 +128,5 @@ Move the dated item CSV and tag PDF(s) into `CSV Files and Tags/Archive/`.
 - **Saved settings** are stored in the browser's localStorage, so they are per browser and
   per file location. A new browser or a moved file starts from the defaults.
 - Barcodes are Code128, generated from the SKU column.
+- **Feedback and contributions:** Sellers are welcome to fork this repository, report problems by
+  opening an issue, and share ideas for improvement in the GitHub Discussions area.
