@@ -130,3 +130,11 @@ Move the dated item CSV and tag PDF(s) into `CSV Files and Tags/Archive/`.
 - Barcodes are Code128, generated from the SKU column.
 - **Feedback and contributions:** Sellers are welcome to fork this repository, report problems by
   opening an issue, and share ideas for improvement in the GitHub Discussions area.
+
+---
+
+## Disclaimer
+
+The provider of this file and its instructions, Scott Pettigrew, is **not affiliated with Peddler's Mall**.
+While every effort has been made to eliminate errors, Scott Pettigrew and Peddler's Mall are not
+responsible for errors caused by the use of this program.
