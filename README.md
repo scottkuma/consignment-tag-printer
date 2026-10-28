@@ -1,5 +1,14 @@
 # Consignment Tags: From Item List to Printed Tags
 
+<img src="repo-qr.png" alt="QR code linking to the GitHub repository" width="180" align="right">
+
+**Get the tool and the latest instructions:**
+<https://github.com/scottkuma/consignment-tag-printer>
+
+Scan the QR code with a phone camera to open the repository.
+
+<br clear="all">
+
 This describes how a list of items becomes print-ready price tags using
 `consignment_tag_printer.html`.
 
