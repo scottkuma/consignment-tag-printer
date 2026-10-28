@@ -12,6 +12,31 @@ Scan the QR code with a phone camera to open the repository.
 This describes how a list of items becomes print-ready price tags using
 `consignment_tag_printer.html`.
 
+## Getting the tool
+
+The tag maker is a single file, `consignment_tag_printer.html`. It runs in your web browser
+(Chrome, Safari, Edge or Firefox), needs no installation, and nothing is uploaded anywhere.
+
+**Option 1: download just the HTML file (easiest)**
+1. On this GitHub page, click `consignment_tag_printer.html` in the file list.
+2. Click the **Download raw file** button (the download-arrow icon at the top right of the file view).
+3. Save it somewhere easy to find, such as your Desktop or a folder named "Consignor Printer".
+4. Double-click the saved file to open it in your browser.
+
+**Option 2: download everything as a ZIP**
+1. On the main page of this repository, click the green **Code** button, then **Download ZIP**.
+2. Open the ZIP to unpack it, and open `consignment_tag_printer.html` from the unpacked folder.
+
+**Option 3: clone the repository (for people who use Git)**
+```bash
+git clone https://github.com/scottkuma/consignment-tag-printer.git
+```
+Then open `consignment_tag_printer.html` from the new `consignment-tag-printer` folder.
+To pick up future improvements later, run `git pull` inside that folder.
+
+Your Location, Code and Back of Tag settings are remembered by your browser, so keep opening the
+same saved copy of the file.
+
 ## Files in this folder
 
 | File | Purpose |
