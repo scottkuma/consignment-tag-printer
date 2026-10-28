@@ -1,6 +1,6 @@
 # Consignment Tags: From Item List to Printed Tags
 
-<img src="repo-qr.png" alt="QR code linking to the GitHub repository" width="180" align="right">
+<img src="images/repo-qr.png" alt="QR code linking to the GitHub repository" width="180" align="right">
 
 **Get the tool and the latest instructions:**
 <https://github.com/scottkuma/consignment-tag-printer>
@@ -18,12 +18,27 @@ This describes how a list of items becomes print-ready price tags using
 |------|---------|
 | `consignment_tag_printer.html` | Self-contained tag generator. Runs locally in the browser; nothing is uploaded. |
 | `peddlers_mall_locations.csv` | Source list for the Location dropdown (names are also embedded in the HTML). |
+| `images/` | Example handwritten page and the repository QR code used in this README. |
 | `CSV Files and Tags/` | Working folder for item-entry CSVs, Consignor Access exports and generated PDFs. |
 | `CSV Files and Tags/Archive/` | Dated copies of past exports and tag PDFs. |
 
 ## Steps
 
 ### 1. Build the item-entry CSV
+
+The goal of this step is a CSV file in the **`Standard_Item_Entry_Template.csv`** format.
+There are several ways to get one. **Choose whichever suits the seller:**
+
+- **Fill in the template by hand.** The seller can type the items straight into
+  `Standard_Item_Entry_Template.csv` (in Excel, Numbers, Google Sheets or any text editor).
+- **Export it from a third-party inventory program.** If the seller already tracks inventory in
+  another app or spreadsheet, it can output the items in the `Standard_Item_Entry_Template.csv` format for them.
+- **Convert handwritten notes with an AI** (steps below).
+
+Handwritten notes like this one can be turned into the CSV automatically:
+
+![Example of a handwritten inventory page: item description, size and price on each line](images/example-handwritten-page.jpg)
+
 1. Photograph the handwritten inventory notes (one image per page).
 2. Attach the photos and the template CSV file to the chat in Claude or another AI.
 3. Use the AI to convert the photos into a combined CSV that follows the
