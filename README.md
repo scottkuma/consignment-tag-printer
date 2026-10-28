@@ -136,5 +136,5 @@ Move the dated item CSV and tag PDF(s) into `CSV Files and Tags/Archive/`.
 ## Disclaimer
 
 The provider of this file and its instructions, Scott Pettigrew, is **not affiliated with Peddler's Mall**.
-While every effort has been made to eliminate errors, Scott Pettigrew and Peddler's Mall are not
+While every effort has been made to eliminate errors, neither Scott Pettigrew nor the Peddler's Mall are
 responsible for errors caused by the use of this program.
